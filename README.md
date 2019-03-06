@@ -1,6 +1,6 @@
 # email_base_checker
 
-<p>If you want to use this script, just write in terminal "<b>python3</b> email_base_checker <i>path_to_the_db.txt</i> <i>path_to_the_good.txt</i>"</p>
+<p>If you want to use this script, just write in terminal "<b>python3</b> email_base_checker <i>path_to_the_db.txt</i> (while you need to write path in .py file, sorry:3 <i>path_to_the_good.txt</i>"</p>
 <p>the base should have the following form:</p>
 <pre>
 login1:password1
