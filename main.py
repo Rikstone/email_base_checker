@@ -7,7 +7,7 @@ import sys
 import glob
 
 
-def createParser ():
+def create_parser ():
     parser = argparse.ArgumentParser()
     parser.add_argument('inputDirectory',choices=glob.glob('*.txt'),
                     help='Path to the input directory.')
@@ -36,15 +36,15 @@ def mail_auth(login,password):
         pass
 
 def main():
-    parser = createParser()
+    parser = create_parser()
     namespace = parser.parse_args(sys.argv[1:])
     mail = get_mail_list(namespace.inputDirectory)
   
-    for account in mail:
-        login = account.split(':')[0]
-        password = account.split(':')[1]
+    for data in mail:
+        account = data.split(':')
+        login = account[0]
+        password = account[1]
         mail_auth(login,password)
-
 
 if __name__ == '__main__':
     main()
