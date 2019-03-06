@@ -23,13 +23,12 @@ def get_mail_list(path):
     return mail
 
 def mail_auth(login,password):
+    print('%s:%s' % (login,password))
     try:
         server = login.split('@')[1]
         mail = imaplib.IMAP4_SSL('imap.'+server)
         mail.login(login,password)
-
-        print('%s:%s' % (login,password)) # this is a good result
-
+        print('good')
         with open('good.txt','a') as f:
             f.write('%s:%s\n' % (login,password))
     except:
