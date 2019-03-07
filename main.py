@@ -6,8 +6,8 @@ import argparse
 import sys
 import os.path
 
-def valid_file(param): # check file extension
-    ext = os.path.splitext(param)[1] # get file extension
+def valid_file(param): # Check file extension
+    ext = os.path.splitext(param)[1] # Get file extension
     if ext.lower() != '.txt':
         raise argparse.ArgumentTypeError('File must have a .txt extension')
 
@@ -40,16 +40,19 @@ def mail_auth(login,password,path):
         pass
 
 def main():
-    path = os.path.join(os.path.dirname(__file__),'good.txt') # Create absolute path  for good.txt
+    path = os.path.join(os.path.dirname(__file__),'good.txt') # Create absolute path for good.txt
     parser = create_parser()
     namespace = parser.parse_args(sys.argv[1:])
     mail = get_mail_list(namespace.inputDirectory)
   
     for data in mail:
-        account = data.split(':')
-        login = account[0]
-        password = account[1]
-        mail_auth(login,password,path)
+        try:
+            account = data.split(':')
+            login = account[0]
+            password = account[1]
+            mail_auth(login,password,path)
+        except IndexError:
+            continue
 
 if __name__ == '__main__':
     main()
