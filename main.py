@@ -10,7 +10,6 @@ import os.path
 def create_parser ():
     parser = argparse.ArgumentParser()
     parser.add_argument('inputDirectory',help='Path to the input directory.')
- 
     return parser
 
 def mail_auth(login,password,file_path):
@@ -24,6 +23,7 @@ def mail_auth(login,password,file_path):
             f.write('%s:%s\n' % (login,password))
     except:
         pass
+    
 
 def main():
     file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),'good.txt') # Create absolute path for good.txt
