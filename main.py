@@ -13,7 +13,6 @@ def create_parser ():
  
     return parser
 
-
 def mail_auth(login,password,file_path):
     print('%s:%s' % (login,password))
     try:
@@ -27,7 +26,6 @@ def mail_auth(login,password,file_path):
         pass
 
 def main():
-
     file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),'good.txt') # Create absolute path for good.txt
     parser = create_parser()
     namespace = parser.parse_args(sys.argv[1:])
